@@ -1,0 +1,1336 @@
+# Trajan v2.0 Layout
+#
+# This version is for Registered Shareware.
+# N.B. If you are an Unregistered user, there is no point copying
+# this file over unreg.lay! The extra items are not recognised
+# internally unless you register.
+#
+# Dimensions and offsets are given in 1/10th font units
+# for all objects except Icon Buttons (i.e. the Tool Bar).
+#
+# You can specify different default values for parameters
+# using a value statement within the definition; for example:
+#   value 200
+# in the epochs define...enddefine block sets the default
+# number of epochs to 200.
+# Use "value on" or "value off" for switch parameters (represented
+# by check-boxes on the User Interface).
+
+#
+# Tool bar
+#
+
+define tool_loadnet
+  left 0
+  bottom 21
+  prompt "File/Open/Network"
+  width 24
+  height 21
+enddefine
+
+define tool_loadpat
+  left 24
+  bottom 21
+  prompt "File/Open/Pattern"
+  width 24
+  height 21
+enddefine
+
+define tool_savenet
+  left 48
+  bottom 21
+  prompt "File/Save/Network"
+  width 24
+  height 21
+enddefine
+
+define tool_savepat
+  left 72
+  bottom 21
+  prompt "File/Save/Pattern"
+  width 24
+  height 21
+enddefine
+
+define tool_net
+  left 96
+  bottom 21
+  prompt "Edit/Network"
+  width 24
+  height 21
+enddefine
+
+define tool_pat
+  left 120
+  bottom 21
+  prompt "Edit/Pattern"
+  width 24
+  height 21
+enddefine
+
+define tool_bp
+  left 144
+  bottom 21
+  prompt "Train/Back Propagation"
+  width 24
+  height 21
+enddefine
+
+define tool_koho
+  left 168
+  bottom 21
+  prompt "Train/Kohonen"
+  width 24
+  height 21
+enddefine
+
+define tool_graph
+  left 192
+  bottom 21
+  prompt "Statistics/Training Graph"
+  width 24
+  height 21
+enddefine
+
+define tool_bar
+  left 216
+  bottom 21
+  prompt "Statistics/Pattern Errors"
+  width 24
+  height 21
+enddefine
+
+define tool_class
+  left 240
+  bottom 21
+  prompt "Statistics/Classification"
+  width 24
+  height 21
+enddefine
+
+define tool_regress
+  left 264
+  bottom 21
+  prompt "Statistics/Regression"
+  width 24
+  height 21
+enddefine
+
+define tool_runone
+  left 288
+  bottom 21
+  prompt "Run/Single Pattern"
+  width 24
+  height 21
+enddefine
+
+define tool_runall
+  left 312
+  bottom 21
+  prompt "Run/All Patterns"
+  width 24
+  height 21
+enddefine
+
+define tool_topo
+  left 336
+  bottom 21
+  prompt "Run/Topological Map"
+  width 24
+  height 21
+enddefine
+
+define tool_help
+  left 360
+  bottom 21
+  prompt "Help/Contents"
+  width 24
+  height 21
+enddefine
+
+#
+# Network details
+#
+
+define display_net_name
+  left 10
+  bottom 25
+  width 120
+  prompt "Network"
+  style read_only
+enddefine
+
+define display_net_type
+  left 220
+  bottom 25
+  width 120
+  prompt "Type"
+  style read_only
+enddefine
+
+define display_pattern_name
+  left 410
+  bottom 25
+  prompt "Patterns"
+  width 120
+  style read_only
+enddefine
+
+define net_display
+  left 0
+  right 0
+  right_anchor 1.0
+  bottom_anchor 1.0
+  bottom 4
+  top 25
+  width 620
+  height 180
+enddefine
+
+#
+# Network Creation window
+#
+
+define newnet_type
+  menu File/New/Network
+  window "Trajan. Create Network."
+  prompt "Type"
+  left 10
+  bottom 22
+enddefine
+
+define no_layers_matrix
+  menu File/New/Network
+  left 10
+  top 50
+  right -10
+  right_anchor 1.0
+  width 430
+  height 57
+enddefine
+
+define newnet_commit
+  menu File/New/Network
+  prompt "Create"
+  left 400
+  bottom 20
+  width 100
+enddefine
+
+define close
+  menu File/New/Network
+  prompt "Close"
+  left 400
+  bottom 40
+  width 100
+enddefine
+
+#
+# Pattern creation
+#
+
+define pattern_new_inputs
+  menu File/New/Pattern
+  window "Trajan. Create Pattern Set."
+  prompt "Inputs"
+  prompt_width 80
+  width 80
+  left 10
+  bottom 20
+enddefine
+
+define pattern_new_outputs
+  menu File/New/Pattern
+  prompt "Outputs"
+  prompt_width 80
+  width 80
+  left 10
+  bottom 40
+enddefine
+
+define pattern_create
+  menu File/New/Pattern
+  prompt "Create"
+  width 100
+  left 230
+  bottom 20
+enddefine
+
+define close
+  menu File/New/Pattern
+  prompt "Close"
+  width 100
+  left 230
+  bottom 40
+enddefine
+
+
+#
+# Open an existing file
+#
+
+define file_open_network
+  menu File/Open/Network
+  top 5
+enddefine
+
+define file_open_pattern
+  menu File/Open/Pattern
+  top 5
+enddefine
+
+#
+# Save a file
+#
+
+define file_save_network
+  menu "File/Save/Network"
+enddefine
+
+define file_save_pattern
+  menu "File/Save/Pattern"
+enddefine
+
+define file_saveas_network
+  menu "File/Save As/Network"
+  window "Trajan. Save Network."
+enddefine
+
+#
+# Save As Pattern
+#
+
+define file_saveas_pattern
+  menu "File/Save As/Pattern"
+  window "Trajan. Save Pattern."
+  top 5
+enddefine
+
+define file_exit
+  menu File/Exit
+  prompt Exit
+enddefine
+
+#
+# Edit Network
+#
+
+define net_layer
+  menu "Edit/Network"
+  prompt "Layer"
+  left 10
+  bottom 22
+  width 50
+enddefine
+
+define net_weights_matrix
+  menu "Edit/Network"
+  prompt "Thresholds"
+  left 10
+  top 30
+  right -10
+  right_anchor 1.0
+  width 430
+  bottom -10
+  bottom_anchor 1.0
+  height 165
+enddefine
+
+
+define close
+  menu "Edit/Network"
+  prompt "Close"
+  width 100
+  left 320
+  bottom 22
+enddefine
+
+#
+# Pattern editing window
+#
+
+define pattern_no_inputs
+  menu "Edit/Pattern"
+  window "Trajan. Pattern Editor."
+  left 10
+  bottom 20
+  prompt "Inputs"
+  width 80
+  prompt_width 70
+enddefine
+
+define pattern_no_outputs
+  menu "Edit/Pattern"
+  left 10
+  bottom 40
+  prompt "Outputs"
+  width 80
+  prompt_width 70
+enddefine
+
+define pattern_no_training
+  menu "Edit/Pattern"
+  left 200
+  bottom 20
+  prompt "Training"
+  width 80
+  prompt_width 115
+enddefine
+
+define pattern_no_verification
+  menu "Edit/Pattern"
+  left 200
+  bottom 40
+  prompt "Verification"
+  width 80
+  prompt_width 115
+enddefine
+
+define pattern_matrix
+  menu "Edit/Pattern"
+  left 10
+  top 50
+  right -10
+  right_anchor 1.0
+  bottom -10
+  bottom_anchor 1.0
+  width 430
+  height 165
+enddefine
+
+define pattern_shuffle
+  menu "Edit/Pattern"
+  left 440
+  bottom 20
+  prompt "Shuffle"
+  width 100
+enddefine
+
+define close
+  menu "Edit/Pattern"
+  left 440
+  bottom 40
+  prompt "Close"
+  width 100
+enddefine
+
+#
+# Attribute/unit name match
+#
+
+define
+  left 10
+  bottom 20
+  menu "Edit/Attribute-Unit Match"
+  window "Trajan. Attribute-Unit Matching."
+  prompt "Match network input/output unit to pattern attribute names"
+enddefine
+
+define att_unit_match
+  menu "Edit/Attribute-Unit Match"
+  prompt "Automatically maintain match"
+  left 10
+  bottom 35
+enddefine
+
+define
+  left 10
+  bottom 60
+  menu "Edit/Attribute-Unit Match"
+  prompt "Attribute names to units"
+enddefine
+
+define att_to_unit
+  left 250
+  bottom 60
+  menu "Edit/Attribute-Unit Match"
+  prompt "Copy"
+  width 80
+enddefine
+
+define
+  left 10
+  bottom 80
+  menu "Edit/Attribute-Unit Match"
+  prompt "Unit names to attributes"
+enddefine
+
+define unit_to_att
+  menu "Edit/Attribute-Unit Match"
+  left 250
+  bottom 80
+  prompt "Copy"
+  width 80
+enddefine
+
+define close
+  menu "Edit/Attribute-Unit Match"
+  left 400
+  bottom 60
+  prompt "Close"
+  width 100
+enddefine
+
+
+#
+# Back-propagation training window
+#
+
+define epochs
+  menu "Train/Back Propagation"
+  window "Trajan. Back Propagation."
+  prompt "Epochs"
+  left 10
+  bottom 20
+  prompt_width 130
+  width 85
+enddefine
+
+define start_eta
+  menu "Train/Back Propagation"
+  prompt "Learning rate"
+  left 10
+  bottom 40
+  prompt_width 130
+  width 70
+enddefine
+
+define end_eta
+  menu "Train/Back Propagation"
+  prompt ""
+  left 220
+  bottom 40
+  width 70
+enddefine
+
+define start_momentum
+  menu "Train/Back Propagation"
+  prompt "Momentum"
+  prompt_width 130
+  left 10
+  bottom 60
+  width 70
+enddefine
+
+define end_momentum
+  menu "Train/Back Propagation"
+  prompt ""
+  left 220
+  bottom 60
+  width 70
+enddefine
+
+define training_noise
+  menu "Train/Back Propagation"
+  prompt "Noise"
+  prompt_width 130
+  left 10
+  bottom 80
+  width 70
+enddefine
+
+define shuffle
+  menu "Train/Back Propagation"
+  prompt "Shuffle patterns"
+  left 10
+  bottom 100
+enddefine
+
+define cross_verification
+  menu "Train/Back Propagation"
+  prompt "Cross verification"
+  left 10
+  bottom 120
+enddefine
+
+define backprop_train
+  menu "Train/Back Propagation"
+  prompt "Train"
+  width 140
+  left 320
+  bottom 20
+enddefine
+
+define backprop_reinit
+  menu "Train/Back Propagation"
+  prompt Reinitialise
+  width 140
+  left 320
+  bottom 40
+enddefine
+
+define backprop_jog
+  menu "Train/Back Propagation"
+  prompt "Jog Weights"
+  width 140
+  left 320
+  bottom 60
+enddefine
+
+define backprop_stop
+  menu "Train/Back Propagation"
+  prompt "Stop"
+  width 140
+  left 320
+  bottom 80
+enddefine
+
+define close
+  menu "Train/Back Propagation"
+  prompt "Close"
+  width 140
+  left 320
+  bottom 100
+enddefine
+
+#
+# Kohonen training window
+#
+
+define epochs
+  menu Train/Kohonen
+  window "Trajan. Kohonen Training."
+  prompt "Epochs"
+  left 10
+  bottom 20
+  prompt_width 145
+  width 85
+enddefine
+
+define
+  menu Train/Kohonen
+  prompt "Start"
+  left 160
+  bottom 40
+enddefine
+
+define
+  menu Train/Kohonen
+  prompt "End"
+  left 240
+  bottom 40
+enddefine
+
+define start_eta
+  menu Train/Kohonen
+  prompt "Learning rate"
+  left 10
+  bottom 60
+  width 70
+  prompt_width 145
+enddefine
+
+define end_eta
+  menu Train/Kohonen
+  prompt ""
+  left 230
+  bottom 60
+  width 70
+enddefine
+
+define start_neighbourhood
+  menu Train/Kohonen
+  prompt "Neighbourhood"
+  prompt_width 145
+  left 10
+  bottom 80
+  width 70
+enddefine
+
+define end_neighbourhood
+  menu Train/Kohonen
+  prompt ""
+  left 230
+  bottom 80
+  width 70
+enddefine
+
+define shuffle
+  menu Train/Kohonen
+  prompt "Shuffle patterns"
+  left 10
+  bottom 100
+enddefine
+
+define cross_verification
+  menu Train/Kohonen
+  prompt "Cross verification"
+  left 10
+  bottom 120
+enddefine
+
+define kohonen_train
+  menu Train/Kohonen
+  prompt "Train"
+  width 140
+  left 330
+  bottom 20
+enddefine
+
+define kohonen_reinit
+  menu Train/Kohonen
+  prompt "Reinitialise"
+  width 140
+  left 330
+  bottom 40
+enddefine
+
+define kohonen_stop
+  menu Train/Kohonen
+  prompt "Stop"
+  width 140
+  left 330
+  bottom 60
+enddefine
+
+define close
+  menu Train/Kohonen
+  prompt "Close"
+  width 140
+  left 330
+  bottom 80
+enddefine
+
+#
+# Error graph window
+#
+
+define training_graph_label
+  prompt "Label"
+  menu "Statistics/Training Graph"
+  window "Trajan. Training Error Graph."
+  width 150
+  left 10
+  bottom 20
+enddefine
+
+define training_graph_interval
+  prompt "Interval"
+  menu "Statistics/Training Graph"
+  width 60
+  left 250
+  bottom 20
+enddefine
+
+define
+  prompt "RMS Error"
+  menu "Statistics/Training Graph"
+  left 10
+  bottom 40
+enddefine
+
+define training_error
+  prompt "Training"
+  menu "Statistics/Training Graph"
+  left 150
+  bottom 40
+  style read_only
+  width 85
+enddefine
+
+define verification_error
+  prompt "Verification"
+  menu "Statistics/Training Graph"
+  left 350
+  bottom 40
+  style read_only
+  width 85
+enddefine
+
+define clear_training_graph
+  prompt "Clear"
+  menu "Statistics/Training Graph"
+  width 100
+  left 600
+  bottom 20
+enddefine
+
+define close
+  prompt "Close"
+  menu "Statistics/Training Graph"
+  width 100
+  left 600
+  bottom 40
+enddefine
+
+define training_graph
+  menu "Statistics/Training Graph"
+  top 50
+  left 10
+  width 600
+  height 130
+enddefine
+
+#
+# Pattern error display
+#
+
+define pattern_error_update
+  menu "Statistics/Pattern Errors"
+  window "Trajan. Pattern Errors."
+  prompt "Update"
+  left 10
+  bottom 20
+  width 100
+enddefine
+
+define close
+  menu "Statistics/Pattern Errors"
+  prompt Close
+  left 150
+  bottom 20
+  width 120
+enddefine
+
+define pattern_error_real_time
+  menu "Statistics/Pattern Errors"
+  prompt "Real-time update"
+  left 10
+  bottom 40
+enddefine
+
+define pattern_bar
+  menu "Statistics/Pattern Errors"
+  prompt "Error per Pattern"
+  left 10
+  top 50
+  right_anchor 1.0
+  right -10
+  bottom_anchor 1.0
+  bottom -10
+  width 300
+  height 200
+enddefine
+
+#
+# Classification statistics
+#
+
+define class_run
+  menu "Statistics/Classification"
+  window "Trajan. Classification Statistics."
+  left 200
+  bottom 20
+  width 100
+  prompt "Run"
+enddefine
+
+define close
+  menu "Statistics/Classification"
+  left 360
+  bottom 20
+  width 100
+  prompt "Close"
+enddefine
+
+define class_factors_matrix
+  menu "Statistics/Classification"
+  left 10
+  top 30
+  right_anchor 1.0
+  right -10
+  bottom_anchor 1.0
+  bottom -10
+  width 530
+  height 165
+enddefine
+
+#
+# Regression statistics
+#
+
+define
+  menu "Statistics/Regression"
+  window "Trajan. Regression Statistics."
+  left 10
+  bottom 20
+  prompt "Training"
+enddefine
+
+define reg_factors_matrix
+  menu "Statistics/Regression"
+  left 10
+  top 25
+  width 230
+  height 95
+enddefine
+
+define
+  menu "Statistics/Regression"
+  left 300
+  bottom 20
+  prompt "Verification"
+enddefine
+
+define reg_ver_factors_matrix
+  menu "Statistics/Regression"
+  left 300
+  top 25
+  width 230
+  height 95
+enddefine
+
+define reg_run
+  menu "Statistics/Regression"
+  left 650
+  bottom 50
+  prompt "Run"
+  width 100
+enddefine
+
+define close
+  menu "Statistics/Regression"
+  left 650
+  bottom 70
+  prompt "Close"
+  width 100
+enddefine
+
+
+#
+# Weight distribution bar chart
+#
+
+define weight_bar_update
+  menu "Statistics/Weight Distribution"
+  window "Trajan. Weight Distribution."
+  prompt "Update"
+  left 200
+  bottom 20
+  width 100
+enddefine
+
+define close
+  menu "Statistics/Weight Distribution"
+  prompt Close
+  left 330
+  bottom 20
+  width 100
+enddefine
+
+define weight_bar_real_time
+  menu "Statistics/Weight Distribution"
+  prompt "Real-time update"
+  left 10
+  bottom 40
+enddefine
+
+define weight_bar
+  menu "Statistics/Weight Distribution"
+  prompt "Weight Distribution"
+  left 10
+  top 50
+  right_anchor 1.0
+  right -10
+  bottom_anchor 1.0
+  bottom -10
+  width 370
+  height 150
+enddefine
+
+#
+# Radial Win Frequencies
+#
+
+define run_win_frequency
+  menu "Statistics/Win Frequencies"
+  window "Trajan. Win Frequencies."
+  left 10
+  bottom 20
+  prompt "Run"
+  width 100
+enddefine
+
+define close
+  menu "Statistics/Win Frequencies"
+  left 150
+  bottom 20
+  prompt "Close"
+  width 100
+enddefine
+
+define win_frequency_matrix
+  menu "Statistics/Win Frequencies"
+  left 10
+  top 30
+  right_anchor 1.0
+  right -10
+  bottom_anchor 1.0
+  bottom -10
+  width 630
+  height 125
+enddefine
+
+#
+# Test network execution
+#
+
+define runone_pattern
+  menu "Run/Single Pattern"
+  window "Trajan. Run Single Pattern."
+  prompt "Pattern"
+  left 10
+  bottom 20
+  width 70
+enddefine
+
+define runone_run
+  menu "Run/Single Pattern"
+  left 680
+  bottom 20
+  prompt "Run"
+  width 100
+enddefine
+
+define close
+  menu "Run/Single Pattern"
+  left 680
+  bottom 40
+  prompt "Close"
+  width 100
+enddefine
+
+define runone_error
+  menu "Run/Single Pattern"
+  left 250
+  bottom 20
+  prompt "Error"
+  style read_only
+  width 110
+enddefine
+
+define runone_classification
+  menu "Run/Single Pattern"
+  left 250
+  bottom 40
+  prompt "Class"
+  style read_only
+  width 150
+enddefine
+
+define
+  menu "Run/Single Pattern"
+  left 10
+  bottom 65
+  prompt "Inputs"
+enddefine
+
+define runone_inputs_matrix
+  menu "Run/Single Pattern"
+  left 10
+  top 70
+  bottom -10
+  bottom_anchor 1.0
+  width 250
+  height 165
+enddefine
+
+define
+  menu "Run/Single Pattern"
+  left 260
+  bottom 65
+  prompt "Outputs"
+enddefine
+
+define runone_outputs_matrix
+  menu "Run/Single Pattern"
+  left 300
+  right -10
+  right_anchor 1.0
+  top 70
+  bottom -10
+  bottom_anchor 1.0
+  width 430
+  height 165
+enddefine
+
+
+#
+# All Patterns - running all current pattern set
+#
+
+define runall_run
+  menu "Run/All Patterns"
+  window "Trajan. Run All Patterns."
+  left 10
+  bottom 20
+  width 100
+  prompt "Run"
+enddefine
+
+define close
+  menu "Run/All Patterns"
+  left 150
+  bottom 20
+  width 100
+  prompt "Close"
+enddefine
+
+define
+  prompt "RMS Error"
+  menu "Run/All Patterns"
+  left 10
+  bottom 45
+enddefine
+
+define training_error
+  prompt "Training"
+  menu "Run/All Patterns"
+  left 155
+  bottom 45
+  style read_only
+  width 100
+enddefine
+
+define verification_error
+  prompt "Verification"
+  menu "Run/All Patterns"
+  left 380
+  bottom 45
+  style read_only
+  width 100
+enddefine
+
+define runall_results_matrix
+  menu "Run/All Patterns"
+  left 10
+  right -10
+  right_anchor 1.0
+  top 50
+  bottom -10
+  bottom_anchor 1.0
+  width 530
+  height 165
+enddefine
+
+#
+# One-off runs (not using a pattern set)
+#
+
+define oneoff_test
+  menu "Run/One-Off"
+  window "Trajan. Run One Off Pattern."
+  left 10
+  bottom 20
+  prompt "Run"
+  width 100
+enddefine
+
+define oneoff_clear
+  menu "Run/One-Off"
+  left 200
+  bottom 20
+  prompt "Clear"
+  width 100
+enddefine
+
+define close
+  menu "Run/One-Off"
+  left 390
+  bottom 20
+  prompt "Close"
+  width 100
+enddefine
+
+define oneoff_classification
+  prompt "Class"
+  menu "Run/One-Off"
+  left 10
+  bottom 40
+  style read_only
+  width 150
+enddefine
+
+define
+  menu "Run/One-Off"
+  left 10
+  bottom 60
+  prompt "Inputs"
+enddefine
+
+define oneoff_inputs_matrix
+  menu "Run/One-Off"
+  left 10
+  top 65
+  bottom -10
+  bottom_anchor 1.0
+  width 230
+  height 165
+enddefine
+
+define
+  menu "Run/One-Off"
+  left 250
+  bottom 60
+  prompt "Outputs"
+enddefine
+
+define oneoff_outputs_matrix
+  menu "Run/One-Off"
+  left 250
+  right -10
+  right_anchor 1.0
+  top 65
+  bottom -10
+  bottom_anchor 1.0
+  width 230
+  height 165
+enddefine
+
+#
+# Network internal activations
+#
+
+define runone_pattern
+  menu "Run/Activations"
+  window "Trajan. Network Activations."
+  left 10
+  bottom 20
+  prompt "Pattern"
+  width 70
+enddefine
+
+define net_layer
+  menu "Run/Activations"
+  left 200
+  bottom 20
+  prompt "Layer"
+  width 70
+enddefine
+
+define runone_run
+  menu "Run/Activations"
+  left 390
+  bottom 20
+  prompt "Run"
+  width 100
+enddefine
+
+define close
+  menu "Run/Activations
+  left 530
+  bottom 20
+  prompt "Close"
+  width 100
+enddefine
+
+define net_activations_matrix
+  menu "Run/Activations"
+  left 10
+  top 45
+  bottom_anchor 1.0
+  bottom -10
+  width 260
+  height 165
+enddefine
+
+define net_activations_bar
+  menu "Run/Activations"
+  prompt "Activations"
+  left 280
+  top 45
+  bottom_anchor 1.0
+  bottom -10
+  right_anchor 1.0
+  right -10
+  width 100
+  height 100
+enddefine
+
+define net_activations_barmax
+  menu "Run/Activations"
+  prompt "Maximum"
+  left 10
+  bottom 40
+  width 60
+enddefine
+
+
+#
+# Topological Map - for Kohonen networks
+#
+
+define topo_pattern_no
+  menu "Run/Topological Map"
+  window "Trajan. Topological Map."
+  left 10
+  bottom 20
+  prompt "Pattern"
+  prompt_width 70
+  width 70
+enddefine
+
+define topo_pattern_name
+  menu "Run/Topological Map"
+  left 180
+  bottom 20
+  prompt ""
+  width 100
+enddefine
+
+define topo_unit_no
+  menu "Run/Topological Map"
+  left 10
+  bottom 40
+  prompt "Unit"
+  prompt_width 70
+  width 70
+enddefine
+
+define topo_unit_name
+  menu "Run/Topological Map"
+  left 180
+  bottom 40
+  prompt ""
+  width 100
+enddefine
+
+define topo_run
+  menu "Run/Topological Map"
+  left 320
+  bottom 20
+  prompt "Run"
+  width 100
+enddefine
+
+define close
+  menu "Run/Topological Map"
+  left 320
+  bottom 40
+  prompt "Close"
+  width 100
+enddefine
+
+define topo_map
+  menu "Run/Topological Map"
+  left 10
+  top 50
+  bottom -10
+  bottom_anchor 1.0
+  right -10
+  right_anchor 1.0
+  width  300
+  height 150
+enddefine
+
+#
+# Help menu
+#
+
+define help_contents
+  menu "Help/Contents"
+enddefine
+
+define help_registration
+  menu "Help/Registration"
+enddefine
+
+define help_license
+  menu "Help/License"
+enddefine
+
+define help_on_help
+  menu "Help/Using Help"
+enddefine
+
+

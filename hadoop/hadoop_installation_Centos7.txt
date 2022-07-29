@@ -1,0 +1,123 @@
+Установка Hadoop на CentOS 7
+
+# - команда от имени суперпользователя (root)
+$ - команда от имени обычного пользователя
+
+Как стать root?
+$ su
+(нужно ввести пароль root, если он был задан)
+или
+$ sudo su
+(нужно ввести свой пароль, если Вы являетесь sudoer)
+Если Вы нигде не задавали пароль root, значит, скорее всего Вы - sudoer, и имеете административные права. Это стандартная ситуация для deb-дистрибутивов (например, Ubuntu).
+В таком случае можно выполнять админимтративные команды, приписав в начале sudo. Но, чтоб это не приписывать каждый раз, легче переключиться на root'а. Закончив выполнение команд от имени root, можно вернуться в свой терминал набрав exit или нажав ctrl+d.
+
+1. Поставить необходимое ПО. Почитать про него. 
+# yum install mc wget curl ssh rsync screen
+
+Далее все от имени обычного пользователя. Перейдите в домашний каталог, если Вы не там:
+$ cd ~
+
+2. Скачать Java. Приведены ссылки и механизм их добычи на случай, если ссылки станут недействительны.
+2.1. Идем на сайт oracle.com, ищем страницу скачивания jdk8.
+Вот она: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+Ищем секцию Java SE Development Kit 8, нажимаем Accept License Agreement. Ищем версию для Linux x64 в архиве .tar.gz. Копируем ссылку.
+Вот она: http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz
+2.2. Скачиваем с помощью curl.
+$ curl -LO -H "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz"
+2.3. Распаковать архив.
+$ tar -xvf jdk-8u181-linux-x64.tar.gz
+
+3. Скачать Hadoop.
+3.1. wget http://mirror.linux-ia64.org/apache/hadoop/common/hadoop-2.9.1/hadoop-2.9.1.tar.gz
+3.2. Распаковать архив.
+$ tar -xvf hadoop-2.9.1.tar.gz
+
+4. Настроить окружение.
+4.1. Переменные. Можно отредактировать специальный файл в домашнем каталоге, который исполняется оболочкой при Вашем входе.
+
+Убедитесь, что файл ~/.bash_profile имеет следующий текст в конце:
+
+# User specific environment and startup programs
+
+JAVA_HOME=$HOME/jdk1.8.0_181
+HADOOP_HOME=$HOME/hadoop-2.9.1
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:$JAVA_HOME/bin:$HADOOP_HOME/bin
+
+export JAVA_HOME
+export HADOOP_HOME
+export PATH
+
+Можно отредактиовать его с помощью нажатия F4 в менеджере MidnightCommander (запускается mc), а можно вызвать редактор из коммандной строки: mcedit ~/.bash_profile
+
+Изменения вступят в силу только тогда, когда вы перелогинитесь, но можно отложить это на самый конец.
+
+4.2. Беспарльный доступ по SSH.
+$ mkdir ~/.ssh
+$ chmod 700 ~/.ssh
+$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+$ chmod 0600 ~/.ssh/authorized_keys
+Команда
+$ ssh localhost
+должна давать Вам доступ по сети (локальная петля) на Вашу машину без пароля. После логина нажмите ctrl+d или наберите exit.
+
+5. Настроить Hadoop.
+5.1. etc/hadoop/hadoop-env.sh
+Указать в этом файле JAVA_HOME=$HOME/jdk1.8.0_181
+5.2. etc/hadoop/core-site.xml
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+</configuration>
+5.3. etc/hadoop/hdfs-site.xml
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+5.4. etc/hadoop/mapred-site.xml
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+</configuration>
+5.5. etc/hadoop/yarn-site.xml
+<configuration>
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+</configuration>
+Для удобства можно перейти в каталог ~/hadoop-2.9.1 и редактировать файлы так:
+$ mcedit имя_файла
+
+6. Установить вспомогательные скрипты. Они должны лежать в ~/bin
+hdpStart.sh - старт hdfs и yarn
+hdpStop.sh - остановка yarn и hdfs
+hdpFormat.sh - форматирование hdfs, необходимо перед стартом первый раз
+hdpCompileJava.sh - скрипт компиляции .java в .jar, поддерживает один параметр - имя входного .java-файла
+
+7. Распаковать и запустить пример WordCount. Посмотреть содержимое скриптов и код.
+Если архив лежит в домашнем каталоге, и Вы находитесь в нем же:
+$ mkdir mysources
+$ tar -xvf WordCount.tar.gz
+$ mv WordCount mysources
+Отформатировать hdfs:
+$ hdpFormat.sh
+Запустить сервисы hadoop:
+$ hdpStart.sh
+Перейти в каталог примера:
+$ cd ~/mysources/WordCount
+Собрать Java-код:
+$ make
+Скопировать входные данные для расчета в hdfs:
+$ ./copyInput.sh
+Запустить расчет:
+$ ./runJar - для Java
+$ ./runPy - для Python (hadoop streaming)
+

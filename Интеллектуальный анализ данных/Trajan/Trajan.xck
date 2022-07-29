@@ -1,0 +1,34 @@
+[BeginXCK]
+þ Description   : [W16] Trajan 2.1 Neural Network Simulator
+þ Comments      : Any network size, extra menu, etc...
+þ Check         : TRAJAN.EXE, 1175717b, 20/07/99
+þ Crack subject : Registration
+þ Crack made by : VArious
+þ Crack made at : 7 Apr 2000, 05:15:49
+þ Protection    : [->------------------] %01
+þ Time for hack : 00:00:00
+þ Type of hack  : Jump correction
+þ Used packer   : None
+þ Used unpacker : None
+þ Src language  : BC++
+þ Reg.Price     : $95
+þ Used tools    : HiEW 6.11, SoftICE 4.01
+þ Under Music   : Demis Roussos, Rick Wakeman
+[BeginCRK]------------------------------------
+
+Trajan 2.1 Neural Network Simulator 1175717b, 20/07/99
+
+TRAJAN.EXE
+0003EBA4: 74 90
+0003EBA5: 49 90
+0005C826: 3A 20
+0005C827: 20 56
+0005C828: 25 41
+0005C829: 73 56
+0005D262: 3A 20
+0005D263: 20 56
+0005D264: 25 41
+0005D265: 73 56
+
+[EndCRK]--------------------------------------
+[EndXCK]
